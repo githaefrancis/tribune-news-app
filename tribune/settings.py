@@ -33,7 +33,8 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config("SECRET_KEY")
-DEBUG=config('DEBUG',default=False,cast=bool)
+# DEBUG=config('DEBUG',default=False,cast=bool)
+DEBUG=os.environ.get('DEBUG',False)
 
 if config('MODE')=="dev":
     DATABASES = {
