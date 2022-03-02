@@ -66,7 +66,7 @@ DATABASES['default'].update(db_from_env)
 ALLOWED_HOSTS=config('ALLOWED_HOSTS',cast=Csv())
 
 
-
+LOGIN_REDIRECT_URL='newsToday'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -79,7 +79,13 @@ STATICFILES_DIRS=[os.path.join(BASE_DIR,"static")]
 
 # Configure for heroku
 
+# Email configs
 
+EMAIL_USE_TLS=config('EMAIL_USE_TLS')
+EMAIL_HOST=config('EMAIL_HOST')
+EMAIL_PORT=config('EMAIL_PORT')
+EMAIL_HOST_USER=config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
 
 
 # Application definition
@@ -92,7 +98,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'news.apps.NewsConfig',
-    'django_bootstrap5'
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
